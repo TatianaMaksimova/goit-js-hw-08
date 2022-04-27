@@ -6,7 +6,7 @@ const refs = {
   message: document.querySelector('.feedback-form textarea'),
 };
 const STORAGE_KEY = 'feedback-form-state';
-const formData = {};
+let formData = {};
 const savedData = localStorage.getItem(STORAGE_KEY);
 const dataObject = JSON.parse(savedData);
 
@@ -31,4 +31,5 @@ function onFormSubmit(e) {
   e.target.reset();
   console.log(formData);
   localStorage.removeItem(STORAGE_KEY);
+  formData = {};
 }
